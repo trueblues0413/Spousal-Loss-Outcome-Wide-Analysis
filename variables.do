@@ -123,21 +123,17 @@ label variable bmi`i' "BMI"
 }
 
 **IADL
-drop iadl2bt13_01 iadl2pc13_01 iadl2me13_01 iadl2pl13_01 iadl2dp13_01 iadl2dc13_01 iadl2np13_01 iadl2bm13_01 iadl2hl13_01 iadl2vf13_01 iadl2gc13_01 iadl2vp13_01 iadl2ty13_01
-recode iadl2bt13 iadl2pc13 iadl2me13 iadl2pl13 iadl2dp13 iadl2dc13 iadl2np13 iadl2bm13 iadl2hl13 iadl2vf13 iadl2gc13 iadl2vp13 iadl2ty13 (1=1) (2=0), ///
-gen(iadl2bt13_01 iadl2pc13_01 iadl2me13_01 iadl2pl13_01 iadl2dp13_01 iadl2dc13_01 iadl2np13_01 iadl2bm13_01 iadl2hl13_01 iadl2vf13_01 iadl2gc13_01 iadl2vp13_01 iadl2ty13_01)	
+recode iadl2bt13 iadl2pc13 iadl2me13 iadl2pl13 iadl2dp13 (1=1) (2=0), ///
+gen(iadl2bt13_01 iadl2pc13_01 iadl2me13_01 iadl2pl13_01 iadl2dp13_01)	
 
 foreach i in 16 19{
 	recode iadl3bt_`i' iadl3pc_`i' iadl3me_`i' iadl3pl_`i' iadl3dp_`i' (1 2=1)(3=0) ///
 	,gen(iadl2bt`i'_01 iadl2pc`i'_01 iadl2me`i'_01 iadl2pl`i'_01 iadl2dp`i'_01)
-	recode iadl2dc`i' iadl2np`i' iadl2bm`i' iadl2hl`i' iadl2vf`i' iadl2gc`i' iadl2vp`i' iadl2ty`i' (1=1) (2=0) ///
-	,gen(iadl2dc`i'_01 iadl2np`i'_01 iadl2bm`i'_01 iadl2hl`i'_01 iadl2vf`i'_01 iadl2gc`i'_01 iadl2vp`i'_01 iadl2ty`i'_01)
 }
 
 foreach i in 13 16 19{
-	gen IADL`i' = iadl2bt`i'_01 + iadl2pc`i'_01 + iadl2me`i'_01 + iadl2pl`i'_01 + iadl2dp`i'_01 + iadl2dc`i'_01 + iadl2np`i'_01 ///
-	+ iadl2bm`i'_01 + iadl2hl`i'_01 + iadl2vf`i'_01 + iadl2gc`i'_01 + iadl2vp`i'_01 + iadl2ty`i'_01
-	label variable IADL`i' "IADL(0-13)"
+	gen IADL`i' = iadl2bt`i'_01 + iadl2pc`i'_01 + iadl2me`i'_01 + iadl2pl`i'_01 + iadl2dp`i'_01
+	label variable IADL`i' "IADL"
 }
 	
 **Chronic disease: hypertension, diabetes
@@ -286,7 +282,7 @@ foreach i in 13 16 19{
 	elabel variable trust`i' "Community trust" contribution`i' "Community contribution" attachment`i' "Community attachment"
 }
 
-/*Explanatory variables*/
+/*Exposure variable*/
 generate berv3_1316 = .
 replace berv3_1316 = 0 if mari5st13 == 1 & mari5st16 == 1
 replace berv3_1316 = 1 if mari5st13 == 1 & mari5st16 == 2
