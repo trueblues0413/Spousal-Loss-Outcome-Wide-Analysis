@@ -7,9 +7,9 @@ tabulate edu3_13, gen(edu3_13d)
 local covars "edu3_13d1 edu3_13d3 eqincome13 emp13d1 emp13d3 adl3ra13 cohab13"
 
 #delimit ;
-local continuous_outcomes "bmi13 iid13 walk13 gds13 happiness13 hobby13 sports13 senior13 learn13 meet13 numfr13 goout13 volunteer13 skills13 meat13 veg13 trust13 contribution13 attachment13
-bmi16 iid16 walk16 gds16 happiness16 hobby16 sports16 senior16 learn16 meet16 numfr16 goout16 volunteer16 skills16 meat16 veg16 trust16 contribution16 attachment16
-bmi19 iid19 walk19 gds19 happiness19 hobby19 sports19 senior19 learn19 meet19 numfr19 goout19 volunteer19 skills19 meat19 veg19 trust19 contribution19 attachment19"
+local continuous_outcomes "bmi13 IADL13 walk13 gds13 happiness13 hobby13 sports13 senior13 learn13 meet13 numfr13 goout13 volunteer13 skills13 meat13 veg13 trust13 contribution13 attachment13
+bmi16 IADL16 walk16 gds16 happiness16 hobby16 sports16 senior16 learn16 meet16 numfr16 goout16 volunteer16 skills16 meat16 veg16 trust16 contribution16 attachment16
+bmi19 IADL19 walk19 gds19 happiness19 hobby19 sports19 senior19 learn19 meet19 numfr19 goout19 volunteer19 skills19 meat19 veg19 trust19 contribution19 attachment19"
 ;
 #delimit cr
 
@@ -153,9 +153,9 @@ replace berv3_1316 = 0 if berv3_1316 < 0
 
 *Standardize continuous variables
 #delimit ;
-local continuous_outcomes "bmi13 iid13 meat13 veg13 walk13 gds13 happiness13 hobby13 sports13 senior13 learn13 meet13 numfr13 goout13 volunteer13 skills13 trust13 contribution13 attachment13 
-bmi16 iid16 meat16 veg16 walk16 gds16 happiness16 hobby16 sports16 senior16 learn16 meet16 numfr16 goout16 volunteer16 skills16 trust16 contribution16 attachment16
-bmi19 iid19 meat19 veg19 walk19 gds19 happiness19 hobby19 sports19 senior19 learn19 meet19 numfr19 goout19 volunteer19 skills19 trust19 contribution19 attachment19"
+local continuous_outcomes "bmi13 IADL13 meat13 veg13 walk13 gds13 happiness13 hobby13 sports13 senior13 learn13 meet13 numfr13 goout13 volunteer13 skills13 trust13 contribution13 attachment13 
+bmi16 IADL16 meat16 veg16 walk16 gds16 happiness16 hobby16 sports16 senior16 learn16 meet16 numfr16 goout16 volunteer16 skills16 trust16 contribution16 attachment16
+bmi19 IADL19 meat19 veg19 walk19 gds19 happiness19 hobby19 sports19 senior19 learn19 meet19 numfr19 goout19 volunteer19 skills19 trust19 contribution19 attachment19"
 #delimit cr
 
 *Loop through continuous outcomes to standardize
