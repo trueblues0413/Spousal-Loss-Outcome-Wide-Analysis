@@ -79,6 +79,22 @@ replace popdens13 = 415.0 if mcode13 == 43441
 
 /*Outcome variables*/
 *1. Physical and cognitive health
+**Death (between 2016-2019)
+generate death:yesno = eve_shibou
+replace death = 0 if inrange(days_sibou_lost, 1096, .) //The follow-up period is defined as 1096 days (3 years).
+
+**Dementia (between 2016-2019)
+generate dementia:yesno = eve_dem
+replace dementia = 0 if inrange(days_dem_sibou_lost, 1096, .) //The follow-up period is defined as 1096 days (3 years).
+
+**Funcitonal disability of any levels (between 2016-2019)
+generate rc0:yesno = eve_rc0
+replace rc0 = 0 if inrange(days_rc0_sibou_lost, 1096, .) //The follow-up period is defined as 1096 days (3 years).
+
+**Funcitonal disability ≥Level 2 (between 2016-2019)
+generate rc2:yesno = eve_rc2
+replace rc2 = 0 if inrange(days_rc2_sibou_lost, 1096, .) //The follow-up period is defined as 1096 days (3 years).
+
 **No natural teeth remaining
 recode teeth4_13 (1=1)(2/5=0), gen(teeth13)
 label values teeth13 yesno
